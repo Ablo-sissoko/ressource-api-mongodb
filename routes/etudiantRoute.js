@@ -3,6 +3,7 @@
 const express = require('express');
 const { getAllEtudiants,getEtudiantById,deleteEtudiant,updateEtudiant,addEtudiant} = require('../controller/etudiantController.js');
 const router = express.Router();
+const validateResource = require('../validators/resourceValidator.js');
 
 
 router.get("/getEtudiantById/:id", getEtudiantById);

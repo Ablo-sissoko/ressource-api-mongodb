@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Etudiant = require("../models/etudiantModel");
 
+
 const getAllEtudiants = async (req, res) => {
     try {
         return res.json({ message: "Liste de toutes les etudiants", data: await Etudiant.find() });
@@ -50,6 +51,7 @@ const updateEtudiant = async (req, res) => {
     etudiant.prenom = prenom;
     etudiant.classe = classe;
     etudiant.ecole = ecole;
+    
     etudiant.save();
     res.status(200).json({ message: "etudiant modifier", data: etudiant });
 }
@@ -62,6 +64,7 @@ const updateEtudiant = async (req, res) => {
         // Vérifie si l'ID est valide
         if (!mongoose.Types.ObjectId.isValid(updateId)) {
             return res.status(400).json({ message: "ID non valide" });
+            
         }
 
         // Met à jour l'étudiant par son ID
